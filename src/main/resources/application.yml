@@ -1,4 +1,12 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ticket_sales
+    driverClassName: org.postgresql.Driver
+    username: ticket_sales
+    password: ticket_sales
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
   kafka:
     producer:
       bootstrap-servers: 127.0.0.1:29092
