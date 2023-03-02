@@ -36,6 +36,7 @@ public class Customer {
   @Column(name = "cpf", nullable = false, unique = true)
   private String cpf;
 
+  @Builder.Default
   @Column(name = "created_at", nullable = false)
   private Timestamp createdAt = Timestamp.from(Instant.now());
 }
