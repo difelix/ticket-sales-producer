@@ -7,4 +7,6 @@ public interface TicketService {
   Ticket save(Ticket ticket);
 
   List<Ticket> listAllTicketsAvailable();
+  
+  Ticket findTicketByTagAndAvailability(String tag);
 }

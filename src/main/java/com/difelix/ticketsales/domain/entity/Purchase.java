@@ -29,6 +29,7 @@ import lombok.Setter;
 public class Purchase {
 
   @Id
+  @Builder.Default
   private String id = UUID.randomUUID().toString();
 
   @OneToOne
@@ -45,10 +46,12 @@ public class Purchase {
   @Column(name = "total_amount_payable", nullable = false)
   private BigDecimal totalAmountPayable;
 
+  @Builder.Default
   @Enumerated(EnumType.STRING)
   @Column(name = "status", nullable = false)
   private PurchaseStatusEnum status = PurchaseStatusEnum.PROCESSING;
 
+  @Builder.Default
   @Column(name = "purchase_date", nullable = false)
   private Timestamp purchaseDate = Timestamp.from(Instant.now());
 }
