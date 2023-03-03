@@ -1,7 +1,10 @@
 package com.difelix.ticketsales.domain.entity;
 
+import com.difelix.ticketsales.domain.enums.TicketStatusEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,9 +43,15 @@ public class Ticket {
   @Column(name = "quantity_in_stock", nullable = false)
   private int quantityInStock;
 
+  @Builder.Default
   @Column(name = "created_at", nullable = false)
   private Timestamp createdAt = Timestamp.from(Instant.now());
 
   @Column(name = "updatedAt")
   private Timestamp updatedAt;
+
+  @Builder.Default
+  @Enumerated(EnumType.STRING)
+  @Column(name = "status", nullable = false)
+  private TicketStatusEnum status = TicketStatusEnum.AVAILABLE;
 }
